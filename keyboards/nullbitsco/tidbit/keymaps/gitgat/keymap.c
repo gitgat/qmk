@@ -15,7 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "remote_kb.h"
+
 #include "bitc_led.h"
 
 #define _BASE     0
@@ -25,11 +25,11 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-        KC_F1,   KC_F2, KC_F3, \
-  KC_7, KC_8,     KC_9, KC_PSLS, \
-  KC_4, KC_5,     KC_6, KC_PAST, \
-  KC_1, KC_2,     KC_3, KC_PMNS, \
-  KC_0, KC_DOT, KC_ENT, KC_PPLS  \
+        JS_BUTTON0,   JS_BUTTON0, JS_BUTTON0, \
+  JS_BUTTON0, JS_BUTTON0,     JS_BUTTON0, JS_BUTTON0, \
+  JS_BUTTON0, JS_BUTTON0,     JS_BUTTON0, JS_BUTTON0, \
+  JS_BUTTON0, JS_BUTTON0,     JS_BUTTON0, JS_BUTTON0, \
+  JS_BUTTON0, JS_BUTTON0, JS_BUTTON0, JS_BUTTON0  \
   ),
 
   [_VIA1] = LAYOUT(
@@ -76,28 +76,28 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
   /* With an if statement we can check which encoder was turned. */
   if (index == 0) { /* First encoder */
     if (clockwise) {
-      tap_code16(LCTL(KC_PGUP));
+      tap_code16(JS_BUTTON0);
     } else {
-      tap_code16(LCTL(KC_PGDOWN));
+      tap_code16(JS_BUTTON0);
     }
   } else if (index == 1) { /* Second encoder */
     if (clockwise) {
-      tap_code16(LCTL(KC_HOME));
+      tap_code16(JS_BUTTON0);
     } else {
-      tap_code16(LCTL(KC_END));
+      tap_code16(JS_BUTTON0);
     }
   } else if (index == 2) { /* Thrid encoder */
     if (clockwise) {
-      tap_code16(S(LCTL(KC_INSERT)));
+      tap_code16(JS_BUTTON0);
     } else {
-      tap_code16(S(LCTL(KC_DEL)));
+      tap_code16(JS_BUTTON0);
     }
   } else if (index == 3) { /* Forth encoder */
     if (clockwise) {
-      tap_code16(LCTL(KC_INSERT));
+      tap_code16(JS_BUTTON0);
     } else {
-      tap_code16(LCTL(KC_DEL));
-    }  
+      tap_code16(JS_BUTTON0);
+    }
   }
   return true;
 }
