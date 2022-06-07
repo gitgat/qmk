@@ -16,7 +16,6 @@
 
 #include QMK_KEYBOARD_H
 
-#include "bitc_led.h"
 
 #define _BASE     0
 #define _VIA1     1
@@ -100,11 +99,4 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
   }
   return true;
-}
-
-void led_set_kb(uint8_t usb_led) {
-  if (usb_led & (1<<USB_LED_NUM_LOCK))
-    set_bitc_LED(LED_DIM);
-  else
-    set_bitc_LED(LED_OFF);
 }
